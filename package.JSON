@@ -1,0 +1,13 @@
+{
+  "name": "orm-ecommerce-back-end",
+  "version": "1.0.0",
+  "description": "A back end for an e-commerce site. Using an Express.js API configured to use Sequelize to interact with a MySQL database.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
