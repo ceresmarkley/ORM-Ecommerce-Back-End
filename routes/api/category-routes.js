@@ -43,12 +43,40 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   // update a category by its `id` value
+  try {
+    const updateCategory = await Category.update(req.body, {
+        where: {
+            id: req.params.id,
+        },
+    });
+    if (updateCategory[0] === 0) {
+    res.status(404).json({ message: `Unable to find category with that ID!`}); return;
+    }
+    res.status(200).json({ message: `Category [${updateCategory}] was updated!`});
+  } catch (err) {
+    console.log(err),
+    res.status(500).json({ message: 'Internal server error!' + err});
+  }
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
+  try {
+    const deleteCategory = await Category.destroy(req.body, {
+        where: {
+            id: req.params.id,
+        },
+    });
+    if (!deleteCategory) {
+    res.status(404).json({ message: `Unable to find category with that ID!`}); return;
+    }
+    res.status(200).json({ message: `Category [${deleteCategory}] was deleted!`});
+  } catch (err) {
+    console.log(err),
+    res.status(500).json({ message: 'Internal server error!' + err});
+  }
 });
 
 module.exports = router;
