@@ -34,16 +34,45 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   // create a new tag
+  try {
+    const createTag = await Tag.create(req.body);
+        res.status(201).json(createTag);
+    } catch (err) {
+        res.status(500).json({message: 'Internal server error!' + err});
+    }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   // update a tag's name by its `id` value
+  try {
+    const updateTag = await Tag.create(req.body, {
+        where: {id: req.params.id},
+    });
+        res.status(201).json(updateTag);
+    } catch (err) {
+        res.status(500).json({message: 'Internal server error!' + err});
+    }
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete on tag by its `id` value
+  try {
+    const deleteTag = await Tag.findByPk(req.body, {
+        where: {
+            id: req.params.id,
+        },
+    });
+    if (!deleteTag) {
+    res.status(404).json({ message: `Unable to find product with that ID!`}); return;
+    }
+    await deleteTag.destroy();
+    res.status(200).json({ message: `Tag [${deleteTag}] was deleted!`});
+  } catch (err) {
+    console.log(err),
+    res.status(500).json({ message: 'Internal server error!' + err});
+  }
 });
 
 module.exports = router;

@@ -67,7 +67,7 @@ router.post ('/', async (req, res) => {
     await ProductTag.bulkCreate(productTagIdArr);
     }
       // if no product tags, just respond
-      res.status(200).json(createProduct);
+      res.status(201).json(createProduct);
     } catch (err) {
         console.log(err),
         res.status(500).json({ message: 'Internal server error!' + err});
