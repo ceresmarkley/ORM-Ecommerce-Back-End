@@ -119,8 +119,23 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
+  try {
+    const deleteProduct = await Product.findByPk(req.body, {
+        where: {
+            id: req.params.id,
+        },
+    });
+    if (!deleteProduct) {
+    res.status(404).json({ message: `Unable to find product with that ID!`}); return;
+    }
+    await deleteProduct.destroy();
+    res.status(200).json({ message: `Product [${deleteProduct}] was deleted!`});
+  } catch (err) {
+    console.log(err),
+    res.status(500).json({ message: 'Internal server error!' + err});
+  }
 });
 
 module.exports = router;
