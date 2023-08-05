@@ -65,9 +65,11 @@ THEN I am able to successfully create, update, and delete data in my database
 **Before you start, make sure to created a *`.env`* file in the root directory as the example shown below:**
 
 ```bash
-DB_USER=Replace this with your own username, e.g. "root"
-DB_PASSWORD=Replace this with your own password
-DB_NAME=ecommerce_db
+DB_NAME='ecommerce_db'
+DB_USER='root'
+DB_PW='' Keep the quotations and put your mysql password inside them.
+
+Dont forget to save the file!
 ```
 
 * Source the `schema.sql` in `MySQL`:
