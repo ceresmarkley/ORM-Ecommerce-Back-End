@@ -45,7 +45,6 @@ THEN I am able to successfully create, update, and delete data in my database
   * [![MySQL2 Package](https://img.shields.io/badge/MySQL2-2.1.0-green?logo=mysql)](https://www.npmjs.com/package/https://www.npmjs.com/package/mysql2)
   * [![Sequelize Package](https://img.shields.io/badge/sequelize-5.21.7-green?logo=sequelize)](https://www.npmjs.com/package/https://www.npmjs.com/package/sequelize)
 
-[*back to top*](#table-of-contents)
 
 ## Installation
 
@@ -110,11 +109,10 @@ https://github.com/ceresmarkley/employee-tracker/assets/129554518/ab2e827d-ce8e-
 
 ## Sources 
 
-[Starter Code](https://github.com/coding-boot-camp/fantastic-umbrella)
-
-[*back to top*](#table-of-contents)
+[Challenge Starter Code](https://github.com/coding-boot-camp/fantastic-umbrella)
 
 --- 
 
 © 2023 Ceres Markley. All Rights Reserved.
+[*back to top*](#table-of-contents)
 
