@@ -113,6 +113,6 @@ https://github.com/ceresmarkley/employee-tracker/assets/129554518/ab2e827d-ce8e-
 
 --- 
 
-© 2023 Ceres Markley. All Rights Reserved.
+© 2023 Ceres Markley. All Rights Reserved.   
 [*back to top*](#table-of-contents)
 
