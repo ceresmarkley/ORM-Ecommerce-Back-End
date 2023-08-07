@@ -64,7 +64,7 @@ router.delete('/:id', async (req, res) => {
     res.status(404).json({ message: `Unable to find product with that ID!`}); return;
     }
     await deleteTag.destroy();
-    res.status(200).json({ message: `Tag was deleted!`});
+    res.status(200).json({ message: `Tag [${req.params.id}] was deleted!`});
   } catch (err) {
     console.log(err),
     res.status(500).json({ message: 'Internal server error!' + err});
